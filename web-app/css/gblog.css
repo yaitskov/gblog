@@ -1,0 +1,52 @@
+
+
+
+div.form {
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+div.form.login {
+    width: 420px;
+}
+
+div.form div.row {
+    clear: both;
+    float: none;
+}
+
+div.form div.row span {
+    float: left;
+    padding-top: 2px;
+    padding-bottom: 10px;
+}
+
+div.form div.row input {
+    float: right;
+
+}
+
+div.form div.row input[type=text], div.form div.row input[type=password] {
+    width: 300px;
+}
+
+div.form span.error {
+    color: red;
+}
+
+div.block {
+    padding: 10px 20px;
+}
+
+div.block li {
+    padding-left: 10px;
+}
+
+div.block ul {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 30px;
+}
