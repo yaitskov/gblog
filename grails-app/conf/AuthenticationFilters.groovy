@@ -3,9 +3,12 @@
 class AuthenticationFilters {
 
     def filters = {
-        all(controller:'*', action:'update') {
+        all(controller:'.*', regex: true, action: '(update|delete|save)') {
             before = {
-
+                if (!session.user) {
+                    redirect(controller: 'user', action: 'login')
+                    return false
+                }
             }
             after = { Map model ->
 
