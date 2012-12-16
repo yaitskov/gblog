@@ -8,7 +8,7 @@
     <content tag="block-post">
 
         <div id="list-post" class="content scaffold-list" role="main">
-            <h1>Reset blog posts</h1>
+            <h1>Reset blog <g:simple>posts</g:simple></h1>
 
             <div class="card-list">
                 <g:each in="${postInstanceList}" status="i" var="postInstance">
