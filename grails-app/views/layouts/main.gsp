@@ -23,7 +23,7 @@
     <ul>
         <li id="siteLogo">Rapid Grails Blog</li>
         <li>
-            <a href="${createLink(absolute: true)}">
+            <a href="${createLink(uri: '/', absolute: true)}">
                 Site
             </a>
         </li>
