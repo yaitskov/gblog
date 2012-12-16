@@ -9,6 +9,13 @@
 
 <div class="nav" role="navigation">
     <ul>
+        <g:if test="${params.action != 'recent'}">
+            <li>
+                <g:link class="list" action="recent">
+                    Recent posts
+                </g:link>
+            </li>
+        </g:if>
         <li>
             <g:link class="create" action="create">
                 <g:message code="default.new.label" args="[entityName]"/>

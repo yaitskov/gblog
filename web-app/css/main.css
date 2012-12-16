@@ -598,3 +598,24 @@ a.skip {
 	position: absolute;
 	left: -9999px;
 }
+
+
+
+.card {
+    float: none;
+    clear: both;
+    padding: 8px 15px 28px 36px;
+}
+.card .date {
+    float: right;
+    font-size: 10px;
+    color: #999;
+}
+.card .title {
+    float: left;
+}
+
+.card-list {
+    padding-top: 10px;
+    padding-bottom: 15px;
+}

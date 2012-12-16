@@ -1,53 +1,45 @@
 <g:applyLayout name="post">
 
-<head>
-    <g:set var="entityName" value="${message(code: 'post.label', default: 'Post')}"/>
-    <title>Recent blog posts</title>
-</head>
+    <head>
+        <g:set var="entityName" value="${message(code: 'post.label', default: 'Post')}"/>
+        <title>Recent blog posts</title>
+    </head>
 
-<content tag="block-post">
+    <content tag="block-post">
 
-    <div id="list-post" class="content scaffold-list" role="main">
-        <h1><g:message code="default.list.label" args="[entityName]"/></h1>
-        <g:if test="${flash.message}">
-            <div class="message" role="status">${flash.message}</div>
-        </g:if>
-        <table>
-            <thead>
-            <tr>
+        <div id="list-post" class="content scaffold-list" role="main">
+            <h1>Reset blog posts</h1>
 
-                <th><g:message code="post.author.label" default="Author"/></th>
+            <div class="card-list">
+                <g:each in="${postInstanceList}" status="i" var="postInstance">
 
-                <g:sortableColumn property="body" title="${message(code: 'post.body.label', default: 'Body')}"/>
+                    <div class="card ${(i % 2) == 0 ? 'even' : 'odd'}">
+                        <div class="title">
+                            <g:link action="show" id="${postInstance.id}">
+                                <g:if test="${postInstance.title}">
+                                    ${fieldValue(bean: postInstance, field: 'title')}
+                                </g:if>
+                                <g:else>
+                                    Post without name
+                                </g:else>
+                            </g:link>
+                        </div>
 
-                <g:sortableColumn property="created"
-                                  title="${message(code: 'post.created.label', default: 'Created')}"/>
+                        <div class="date">
+                            <g:formatDate formatName="recent.date.format"
+                                          date="${postInstance.created}"/>
+                        </div>
+                    </div>
 
-                <g:sortableColumn property="title" title="${message(code: 'post.title.label', default: 'Title')}"/>
+                </g:each>
+                <g:unless test="${postInstanceList}">
+                    <p>There isn't any post yet :(</p>
+                </g:unless>
+            </div>
 
-            </tr>
-            </thead>
-            <tbody>
-            <g:each in="${postInstanceList}" status="i" var="postInstance">
-                <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-
-                    <td><g:link action="show"
-                                id="${postInstance.id}">${fieldValue(bean: postInstance, field: "author")}</g:link></td>
-
-                    <td>${fieldValue(bean: postInstance, field: "body")}</td>
-
-                    <td><g:formatDate date="${postInstance.created}"/></td>
-
-                    <td>${fieldValue(bean: postInstance, field: "title")}</td>
-
-                </tr>
-            </g:each>
-            </tbody>
-        </table>
-
-        <div class="pagination">
-            <g:paginate total="${postInstanceTotal}"/>
+            <div class="pagination">
+                <g:paginate total="${postInstanceTotal}"/>
+            </div>
         </div>
-    </div>
-</content>
+    </content>
 </g:applyLayout>
