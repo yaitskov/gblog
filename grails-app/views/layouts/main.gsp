@@ -19,15 +19,9 @@
 </head>
 
 <body>
-<div id="siteLogo" role="banner">
-    <span>Big</span>
-    <a href="http://grails.org">
-        <img src="${resource(dir: 'images', file: 'grails_logo.png')}" alt="Grails"/>
-    </a>
-</div>
-
-<div class="nav" role="navigation">
+<div id="main-nav" class="nav">
     <ul>
+        <li id="siteLogo">Rapid Grails Blog</li>
         <g:if test="${session.user}">
             <li>
                 <g:link action="logout" controller="user">
@@ -35,15 +29,17 @@
                 </g:link>
             </li>
         </g:if>
-        <g:else>
+        <g:elseif test="${params.action != 'login'}">
             <li>
                 <g:link action="login" controller="user">
                     Enter
                 </g:link>
             </li>
-        </g:else>
+        </g:elseif>
     </ul>
+
 </div>
+
 <g:layoutBody/>
 <div class="footer" role="contentinfo"></div>
 
