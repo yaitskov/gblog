@@ -22,7 +22,17 @@
 <div id="main-nav" class="nav">
     <ul>
         <li id="siteLogo">Rapid Grails Blog</li>
+        <li>
+            <a href="${createLink(absolute: true)}">
+                Site
+            </a>
+        </li>
         <g:if test="${session.user}">
+            <li>
+                <g:link action="home" controller="user">
+                    Home of ${session.user.login}
+                </g:link>
+            </li>
             <li>
                 <g:link action="logout" controller="user">
                     Exit

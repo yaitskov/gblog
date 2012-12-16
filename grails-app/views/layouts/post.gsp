@@ -1,23 +1,24 @@
+<%@ page import="org.hub.gblog.Post" %>
 <html>
 <head>
     <meta name="layout" content="main"/>
+    <title><g:layoutTitle/></title>
 </head>
 
 <body>
 
-<div class="nav">
+<div class="nav" role="navigation">
     <ul>
-        <li <g:if test="${params.action == 'list'}">class='current'</g:if>>
-            <g:link action='list'>list</g:link>
-        </li>
-        <li <g:if test="${params.action == 'create'}">class='current'</g:if>>
-            <g:link action='create'>create</g:link>
+        <li>
+            <g:link class="create" action="create">
+                <g:message code="default.new.label" args="[entityName]"/>
+            </g:link>
         </li>
     </ul>
 </div>
 
 <div id="content">
-    <g:pageProperty name="page.street_name"/>
+    <g:pageProperty name="page.block-post"/>
 </div>
 
 </body>

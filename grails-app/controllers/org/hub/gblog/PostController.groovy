@@ -10,6 +10,11 @@ class PostController {
         redirect(action: "list", params: params)
     }
 
+    def recent() {
+        params.max = 100
+        [postInstanceList: Post.list(params), postInstanceTotal: Post.count()]
+    }
+
     def list(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         [postInstanceList: Post.list(params), postInstanceTotal: Post.count()]
